@@ -10,6 +10,8 @@ import java.util.Random;
 
 import ajbc.collections.courseorganizer.Course;
 import ajbc.collections.courseorganizer.Student;
+import ajbc.collections.top10.Game;
+import ajbc.collections.top10.Gamer;
 
 public class Runner {
 
@@ -18,7 +20,57 @@ public class Runner {
 //		roadExercise();
 //		coursesExercise();
 
-		
+		Game game = new Game();
+		Gamer gamer1 = new Gamer("Adir", 132, "Israel", 6);
+		Gamer gamer2 = new Gamer("Talya", 150, "Italy", 8);
+		Gamer gamer3 = new Gamer("Dana", 90, "USA", 10);
+		Gamer gamer4 = new Gamer("Yafit", 88, "Greece", 5);
+		ArrayList<Gamer> gamers = new ArrayList<Gamer>();
+		gamers.add(gamer1);
+		gamers.add(gamer2);
+		gamers.add(gamer3);
+		gamers.add(gamer4);
+		game.setGamers(gamers);
+
+		System.out.println("--------------------------");
+		System.out.println("Top 10: ");
+		game.updateScoreBoard();
+		game.showScoreBoard();
+		System.out.println("--------------------------");
+
+		game.addGamerToList(new Gamer("Itamar", 100, "Mexico", 10));
+		game.addGamerToList(new Gamer("Alma", 75, "Israel", 15));
+		game.addGamerToList(new Gamer("Ori", 99, "Chaina", 6));
+		game.addGamerToList(new Gamer("Yahali", 99, "Denemark", 14));
+		game.addGamerToList(new Gamer("Sivan", 50, "USA", 4));
+		game.addGamerToList(new Gamer("Shilat", 60, "Peru", 3));
+		game.addGamerToList(new Gamer("Rachel", 60, "Marrocco", 6));
+		game.addGamerToList(new Gamer("Avivit", 70, "USA", 6));
+		game.addGamerToList(new Gamer("Sharly", 85, "Australia", 10));
+
+		System.out.println("--------------------------");
+		System.out.println("Top 10: ");
+		game.updateScoreBoard();
+		game.showScoreBoard();
+		System.out.println("--------------------------");
+
+		gamers = game.sortByGamerName();
+		System.out.println("--------------------------");
+		System.out.println("After sorting by gamer name:");
+		game.showAllGamers();
+		System.out.println("--------------------------");
+
+		gamers = game.sortByCountry();
+		System.out.println("--------------------------");
+		System.out.println("After sorting by gamer country:");
+		game.showAllGamers();
+		System.out.println("--------------------------");
+
+		gamers = game.sortByGamerRank();
+		System.out.println("--------------------------");
+		System.out.println("After sorting by gamer rank:");
+		game.showAllGamers();
+		System.out.println("--------------------------");
 	}
 
 	private static void coursesExercise() {
