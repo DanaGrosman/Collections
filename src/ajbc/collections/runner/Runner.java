@@ -1,15 +1,49 @@
 package ajbc.collections.runner;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
+import java.util.Map;
 import java.util.Random;
+
+import ajbc.collections.courseorganizer.Course;
+import ajbc.collections.courseorganizer.Student;
 
 public class Runner {
 
 	public static void main(String[] args) {
-		// learningCollections();
+//		learningCollections();
+//		roadExercise();
+//		coursesExercise();
+
+		
+	}
+
+	private static void coursesExercise() {
+		Course course1 = new Course("Algorithms", 0, "Afeka", 90);
+		Course course2 = new Course("Biology", 1, "Afeka", 80);
+		Course course3 = new Course("Math", 2, "Sapir", 85);
+		Course course4 = new Course("Biology", 3, "Sapir", 85);
+		Course course5 = new Course("Data structures", 4, "Uno", 100);
+
+		Map<Integer, Course> courses = new HashMap<Integer, Course>();
+		courses.put(course1.getNumber(), course1);
+		courses.put(course2.getNumber(), course2);
+		courses.put(course3.getNumber(), course3);
+		courses.put(course4.getNumber(), course4);
+		courses.put(course5.getNumber(), course5);
+
+		Student student = new Student(1234, courses);
+
+		System.out.println("Average: " + student.calcAverage());
+		System.out.println("StandartDeviation: " + student.calculateSD());
+		System.out.println(student);
+
+	}
+
+	private static void roadExercise() {
 		Road road = new Road();
 		road.addCheckPoint(new CheckPoint("Hedera", "hedera", 0));
 		road.addCheckPoint(new CheckPoint("Netanya", "Shalom Alehem", 1));
@@ -31,9 +65,9 @@ public class Runner {
 				Random random = new Random();
 				int prevOrNext = random.nextInt(2);
 				int currentCheckpoint = cars.get(car).getCheckPointIndex();
-				
+
 				System.out.println(cars.get(car).toString());
-				System.out.println(road.getCheckPoints().get(currentCheckpoint).toString()+"\n");
+				System.out.println(road.getCheckPoints().get(currentCheckpoint).toString() + "\n");
 
 				if (prevOrNext == 0) { // previous
 					if (currentCheckpoint > 0)
